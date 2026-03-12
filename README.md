@@ -82,3 +82,57 @@ This project predicts the number of **calories burned during physical activity**
 - Validation MSLE ≈ **0.0036**
 
 Final predictions are transformed back using `expm1` and exported as a **Kaggle submission file**.
+
+### Drawing with Vision-Language Models (PaLI-Gemma)
+
+**File:** `drawing-with-llm-pali-gemma-2.ipynb`  
+**Competition:** Kaggle – Drawing with LLMs
+
+This project explores **multimodal generative models** to create SVG illustrations from text prompts and evaluate them using automated visual reasoning metrics.
+
+**Pipeline**
+
+1. **Image Generation**
+   - Uses **Stable Diffusion** to generate bitmap images from text prompts.
+   - Prompts are structured with prefixes, suffixes, and negative prompts to control style.
+
+2. **Bitmap → SVG Conversion**
+   - Generated images are converted to **vector graphics (SVG)**.
+   - Uses:
+     - Superpixel segmentation (SLIC)
+     - Color quantization
+     - Polygon and ellipse fitting
+     - Edge and saliency-based feature extraction
+
+3. **Model Evaluation**
+
+Generated SVGs are scored using a **custom evaluation pipeline** consisting of:
+
+- **PaLI-Gemma Vision-Language Model**
+  - Performs visual question answering (VQA) to evaluate semantic correctness.
+
+- **CLIP-based Aesthetic Model**
+  - Measures visual quality of generated images.
+
+- **OCR Robustness**
+  - Tests image stability under compression and transformations.
+
+4. **Final Metric**
+
+The final score combines:
+
+- VQA score  
+- Aesthetic score  
+- Complexity penalty for overly large SVG files  
+
+using a **harmonic mean–based scoring function**.
+
+**Additional Features**
+
+- GPU optimization with **4-bit quantization (bitsandbytes)**
+- Automatic **CUDA memory management**
+- Multi-attempt generation with **best-result selection**
+- Visualization of generated bitmap vs SVG outputs
+- Performance tracking for large-scale inference
+
+This project demonstrates experimentation with **multimodal AI, diffusion models, and vector graphic generation pipelines**.
