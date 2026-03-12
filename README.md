@@ -23,6 +23,7 @@ Accuracy score on the validation set.
 
 The trained ensemble is then used to generate predictions for the Kaggle test dataset.
 
+---
 ### Pneumonia Detection using CNN
 **File:** `Pneumonia_Prediction_CNN.ipynb`  
 **Dataset:** Chest X-Ray Pneumonia Dataset (Kaggle)
