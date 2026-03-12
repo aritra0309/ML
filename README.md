@@ -55,6 +55,7 @@ This project builds a **Convolutional Neural Network (CNN)** to classify chest X
   - Confusion matrix
   - Prediction visualization on sample X-ray images
 
+---
 ### Calorie Expenditure Prediction
 **File:** `calorie-predictor-2.ipynb`  
 **Dataset:** Kaggle Playground Series S5E5
@@ -83,6 +84,7 @@ This project predicts the number of **calories burned during physical activity**
 
 Final predictions are transformed back using `expm1` and exported as a **Kaggle submission file**.
 
+---
 ### Drawing with Vision-Language Models (PaLI-Gemma)
 
 **File:** `drawing-with-llm-pali-gemma-2.ipynb`  
