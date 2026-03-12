@@ -54,3 +54,31 @@ This project builds a **Convolutional Neural Network (CNN)** to classify chest X
   - Classification report
   - Confusion matrix
   - Prediction visualization on sample X-ray images
+
+### Calorie Expenditure Prediction
+**File:** `calorie-predictor-2.ipynb`  
+**Dataset:** Kaggle Playground Series S5E5
+
+This project predicts the number of **calories burned during physical activity** using physiological and activity-related features.
+
+**Pipeline**
+- Dataset loaded from Kaggle Playground Series
+- Categorical feature (`Sex`) encoded using `LabelEncoder`
+- Extensive **feature engineering** using cross-feature interactions:
+  - Multiplication
+  - Addition
+  - Division between numerical variables
+- Target variable (`Calories`) transformed using **log1p** to stabilize variance
+- Data split into **training and validation sets**
+
+**Model**
+- **XGBoost Regressor**
+- GPU training enabled (`gpu_hist`)
+- Hyperparameters optimized using **RandomizedSearchCV**
+
+**Evaluation**
+- Metric: **Mean Squared Log Error (MSLE)**
+- Best CV MSLE ≈ **0.00030**
+- Validation MSLE ≈ **0.0036**
+
+Final predictions are transformed back using `expm1` and exported as a **Kaggle submission file**.
